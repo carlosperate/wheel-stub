@@ -24,6 +24,7 @@ classifiers = [
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
@@ -40,7 +41,7 @@ requires = [
 
 [tool.hatch.envs.default]
 type = "pip-compile"
-lock-filename = "requirements/requirements-lock.txt"
+#lock-filename = "requirements/requirements-lock.txt"
 pip-compile-hashes = true
 dependencies = [
   "build",
@@ -53,11 +54,11 @@ dependencies = [
 ]
 
 [tool.hatch.envs.default.scripts]
-test = "pytest -n auto --ignore=demo --dist=loadgroup {args:tests}"
+test = "pytest --ignore=demo --dist=loadgroup {args:tests}"
 fmt = "pre-commit run --all-files"
 
 [[tool.hatch.envs.all.matrix]]
-python = ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12"]
+python = ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
 
 [tool.hatch.envs.types]
 type = "pip-compile"
